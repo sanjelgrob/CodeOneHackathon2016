@@ -14,18 +14,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <!--STYLES END-->
 
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/> 
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
-    <title>Reverse Geocoding</title> 
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>Reverse Geocoding</title>
 
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
-    <script type="text/javascript"> 
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
       var geocoder;
 
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
       }
-     
+
       //Get the latitude and the longitude;
       function successFunction(position) {
         var lat = position.coords.latitude;
@@ -73,7 +73,7 @@
           }
         });
       }
-      
+
       function displayTime() {
         var str = "";
 
@@ -110,7 +110,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="#">360</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -126,21 +126,41 @@
     </div>
 </nav>
 
-<div class="container-fluid">
+<div class="container-fluid" >
     <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Rewards</a></li>
-                <li><a href="#">Accounts</a></li>
-                <li><a href="#">Export</a></li>
-                <li><a href="#">Loans</a></li>
-                <li><a href="#">Offers</a></li>
-                <li><a href="#">Goals</a></li>
-            </ul>
-        </div>
         <div class="main">
             <h1 class="page-header">Dashboard</h1>
+        </div>
+        <nav class="navigation">
+            <ul class="mainmenu">
+                <li><a href="">Overview</a></li>
+                <li><a href="">Reward points</a>
+                    <ul class="submenu">
+                        <li><a href="">Redeem</a></li>
+                        <li><a href="">Shop</a></li>
+                        <li><a href="">Donate</a></li>
+                    </ul>
+                </li>
+                <li><a href="">Accounts</a>
+                    <ul class="submenu">
+                        <li><a href="">Checking</a></li>
+                        <li><a href="">Saving</a></li>
+                        <li><a href="">Credit Cards</a></li>
+                    </ul>
+                </li>
+                <li><a href="">Loans</a>
+                    <ul class="submenu">
+                        <li><a href="">Mortgage</a></li>
+                        <li><a href="">Auto loans</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="">Offers</a></li>
+                <li><a href="">Goals</a></li>
+            </ul>
+        </nav>
+
+
 </div>
 
 
