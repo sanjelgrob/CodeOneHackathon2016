@@ -17,7 +17,7 @@ a {
 @media (min-width: 768px) {
   .main {
     padding-right: 40px;
-    padding-left: 200px;
+    padding-left: 40px;
   }
 }
 .main .page-header {
@@ -30,7 +30,7 @@ html, body {
 
 /* define a fixed width for the entire menu */
 .navigation {
-    width: 300px;
+    width: 200px;
 }
 
 /* reset our lists to remove bullet points and padding */
