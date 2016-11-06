@@ -38,9 +38,20 @@
         </div>
         
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Accounts</h1>
+            <h1 class="page-header">Accounts</h1><br/><br/>
+            <hr/>
+            <center>
+        <label>Select Loan Type: </label>
+        <select id="mySelectBox">
+          <option value="All">All</option>  
+          <option value="CA">Checking Account</option>
+          <option value="SA">Savings Account</option>
+          <option value="CC">Credit Cards</option>
+        </select>
+    </center>
+        <hr/>
 
-        <div class="col-md-12">
+        <div class="col-md-12" id='tab1'>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="text-center">Checking Accounts <span class="fa fa-edit pull-right bigicon"></span></h4>
@@ -52,7 +63,7 @@
             </div>
         </div>
 
-        <div class="col-md-12">
+        <div class="col-md-12" id='tab2'>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="text-center">Savings Accounts <span class="fa fa-edit pull-right bigicon"></span></h4>
@@ -64,7 +75,7 @@
             </div>
         </div>
         
-        <div class="col-md-12">
+        <div class="col-md-12" id='tab3'>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="text-center">Credit Cards <span class="fa fa-edit pull-right bigicon"></span></h4>
@@ -300,6 +311,30 @@ window.onload = function () {*/
         });
 
        
+    });
+</script>
+<script>
+    $("#mySelectBox").change(function () {
+        if($('#mySelectBox').val() == "CA") {
+            document.getElementById('tab2').style.display='none';
+            document.getElementById('tab3').style.display='none';
+            document.getElementById('tab1').style.display='block';
+        }
+        if($('#mySelectBox').val() == "SA") {
+            document.getElementById('tab1').style.display='none';
+            document.getElementById('tab3').style.display='none';
+            document.getElementById('tab2').style.display='block';
+        }
+        if($('#mySelectBox').val() == "CC") {
+            document.getElementById('tab1').style.display='none';
+            document.getElementById('tab2').style.display='none';
+            document.getElementById('tab3').style.display='block';
+        }
+        if($('#mySelectBox').val() == "All") {
+            document.getElementById('tab1').style.display='block';
+            document.getElementById('tab2').style.display='block';
+            document.getElementById('tab3').style.display='block';
+        }        
     });
 </script>
         <!--SCRIPTS END-->
