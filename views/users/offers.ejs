@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="view-source:https://www.firstnational.com/favicon.ico">
+    <title><%= typeof title == 'undefined' ? 'MyFinance360' : title %></title>
+    <!--STYLES-->
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/dashboard.css">
+    <!--STYLES END-->
+
+</head>
+
+<body>
+<% include ./nav %>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li ><a href="/index">Overview </a></li>
+                <li ><a href="/users/rewards">Rewards</a></li>
+                <li ><a href="/users/accounts">Accounts</a></li>
+                <li ><a href="/users/loans">Loans</a></li>
+            </ul>
+            <ul class="nav nav-sidebar">
+                <li class="active"><a href="/users/offers">Offers<span class="sr-only">(current)</span></a></li>
+                <li><a href="/users/goals">Goals</a></li>
+                <li><a href="/users/about">About</a></li>
+                <li><a href="/users/faq">FAQ</a></li>
+                <li><a href="/users/contact">Contact</a></li>
+            </ul>
+        </div>
+        <% include ./dashboard %>
+
+        <!--SCRIPTS-->
+        <script src="/javascripts/jquery.js"></script>
+        <script src="/javascripts/bootstrap.min.js"></script>
+        <!--SCRIPTS END-->
+
+</body>
+</html>
