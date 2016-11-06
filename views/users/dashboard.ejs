@@ -1,31 +1,82 @@
-
+<script src="/stylesheets/assets/js/chart-master/Chart.js"></script>
         <div class="col-sm-9 col-md-8 main">
             <h1 class="page-header">Dashboard</h1>
 
             <div class="row placeholders">
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
-                </div>
+                <div class="row">
+                    <div class="col-md-4 mb">
+                        <div class="darkblue-panel pn">
+                            <div class="darkblue-header">
+                                <h5>WEEKLY BUDGET</h5>
+                            </div>
+                            <canvas id="serverstatus02" height="120" width="120"></canvas>
+                            <script>
+                                var doughnutData = [
+                                    {
+                                        value: 60,
+                                        color:"#68dff0"
+                                    },
+                                    {
+                                        value : 40,
+                                        color : "#444c57"
+                                    }
+                                ];
+                                var myDoughnut = new Chart(document.getElementById("serverstatus02").getContext("2d")).Doughnut(doughnutData);
+                            </script>
+                            <p>November 06, 2016</p>
+                            <footer>
+                                <div class="pull-left">
+                                    <h5><i class="fa fa-hdd-o"></i> $150.00</h5>
+                                </div>
+                                <div class="pull-right">
+                                    <h5>60% Used</h5>
+                                </div>
+                            </footer>
+                        </div><! -- /darkblue panel -->
+                    </div><!-- /col-md-4 -->
+
+                    <div class="col-md-4 col-sm-4 mb">
+                        <!-- REVENUE PANEL -->
+                        <div class="darkblue-panel pn">
+                            <div class="darkblue-header">
+                                <h5>ACCOUNTS</h5>
+                            </div>
+                            <canvas id="serverstatus03" height="120" width="120"></canvas>
+                            <script>
+                                var pieData = [
+                                    {
+                                        value: 40,
+                                        color:"#b3c6ff"
+                                    },
+                                    {
+                                        value : 35,
+                                        color : "#ffb3e6"
+                                    },
+                                    {
+                                        value : 15,
+                                        color : "#c6ffb3"
+                                    }
+                                ];
+                                var myPie = new Chart(document.getElementById("serverstatus03").getContext("2d")).Pie(pieData);
+                            </script>
+                            <p>November 06, 2016</p>
+                            <footer style="padding-top: 0px">
+                                <div class="pull-left">
+                                    <h8 style="color:#b3c6ff"> Credit Cards</h8><br/>
+                                    <h8 style="color:#ffb3e6"> Checking Accounts</h8>
+                                    </div>
+                                <div class="pull-right">
+                                    <h8 style="color:#c6ffb3"> Savings Accounts</h8>
+                                </div>
+                            </footer>
+                        </div>
+                    </div><!-- /col-md-4 -->
+
+                </div><!-- /row -->
+
             </div>
 
-                  
+
 
             <h2 class="sub-header">Section title</h2>
             <div class="table-responsive">

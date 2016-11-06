@@ -30,31 +30,10 @@ a {
 }
 
 .numberCircle {
-    display:inline-block;
-    line-height:0px;
-    
-    border-radius:50%;
-    border:2px solid;
+
     background-color: #009ca6;
-    font-size:62px;
-}
-
-.numberCircle span {
-    display:inline-block;
-    
-    padding-top:50%;
-    padding-bottom:50%;
-
-    
-    margin-left:8px;
-    margin-right:8px;
-}
-
-.numberCircle1 {
-    padding-top: 8px;
-    
-    background-color: #009ca6;
-    font-size:52px;
+    font-size:90px;
+    color: black;
 }
 
 .image-block {
@@ -103,3 +82,66 @@ a {
         color: #5CB85C;
         font-size: 20px;
     }
+/*spark line*/
+.chart {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+.chart .heading {
+    text-align: left;
+}
+.chart .heading span {
+    display: block;
+}
+.panel.green-chart .chart-tittle {
+    font-size: 16px;
+    padding: 15px;
+    display: inline-block;
+    font-weight:normal;
+    background: #99c262;
+    width: 100%;
+    -webkit-border-radius: 0px 0px 4px 4px;
+    border-radius: 0px 0px 4px 4px;
+}
+#barchart {
+    margin-bottom: -15px;
+    display: inline-block;
+}
+.panel.green-chart .chart-tittle .value {
+    float: right;
+    color: #c0f080;
+}
+.panel.green-chart {
+    background: #a9d96c;
+    color: #fff;
+}
+.panel.terques-chart {
+    background: transparent;
+    color: #797979;
+}
+.panel.terques-chart .chart-tittle .value {
+    float: right;
+    color: #fff;
+}
+.panel.terques-chart .chart-tittle .value a {
+    color: #2f2f2f;
+    font-size: 12px;
+}
+.panel.terques-chart .chart-tittle .value a:hover, .panel.terques-chart .chart-tittle .value a.active {
+    color: #68dff0;
+    font-size: 12px;
+}
+.panel.terques-chart .chart-tittle {
+    font-size: 16px;
+    padding: 15px;
+    display: inline-block;
+    font-weight:normal;
+    background: #39b7ac;
+    width: 100%;
+    -webkit-border-radius: 0px 0px 4px 4px;
+    border-radius: 0px 0px 4px 4px;
+}
+.inline-block {
+    display: inline-block;
+}
