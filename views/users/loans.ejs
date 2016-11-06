@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="http://www.prepbootstrap.com/Content/shieldui-lite/dist/css/light/all.min.css" />
     <!-- Custom styles for this template -->
     <link href="/stylesheets/assets/css/style.css" rel="stylesheet">
     <link href="/stylesheets/assets/css/style-responsive.css" rel="stylesheet">
@@ -24,10 +25,10 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li ><a href="/index">Overview </a></li>
-                <li ><a href="/users/rewards">Rewards</a></li>
-                <li ><a href="/users/accounts">Accounts</a></li>
-                <li class="active"><a href="/users/loans">Loans<span class="sr-only">(current)</span></a></li>            
+                <li><a href="/index">Overview </a></li>
+                <li><a href="/users/rewards">Rewards</a></li>
+                <li><a href="/users/accounts">accounts</a></li>
+                <li class="active"><a href="/users/loans">Loans<span class="sr-only">(current)</span></a></li>
                 <li><a href="/users/offers">Offers</a></li>
                 <li><a href="/users/goals">Goals</a></li>
                 <li><a href="/users/about">About</a></li>
@@ -35,11 +36,272 @@
                 <li><a href="/users/contact">Contact</a></li>
             </ul>
         </div>
-        <% include ./dashboard %>
+        
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">Accounts</h1>
+
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="text-center">Checking Accounts <span class="fa fa-edit pull-right bigicon"></span></h4>
+                </div>
+                
+                <div class="panel-body text-center">            
+                    <div id="grid"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="text-center">Savings Accounts <span class="fa fa-edit pull-right bigicon"></span></h4>
+                </div>
+                
+                <div class="panel-body text-center">            
+                    <div id="grid1"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="text-center">Credit Cards <span class="fa fa-edit pull-right bigicon"></span></h4>
+                </div>
+                
+                <div class="panel-body text-center">            
+                    <div id="grid2"></div>
+                </div>
+            </div>
+        </div>    
+        </div>
+    </div>
+</div>
+
+<div id="chartContainer"></div>
+<div id="chartContainer1"></div>
 
         <!--SCRIPTS-->
         <script src="/javascripts/jquery.js"></script>
         <script src="/javascripts/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://www.prepbootstrap.com/Content/shieldui-lite/dist/js/shieldui-lite-all.min.js"></script>
+
+<script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<script type="text/javascript">
+window.onload = function () {
+    var chart = new CanvasJS.Chart("chartContainer", {
+        theme: "theme2",//theme1
+        title:{
+            text: "Checking Accounts "              
+        },
+        animationEnabled: false,   // change to true
+        data: [              
+        {
+            // Change type to "bar", "area", "spline", "pie",etc.
+            type: "pie",
+            dataPoints: [
+                { label: "US Bank",  y: 49  },
+                { label: "Wells Fargo", y: 51  }
+            ]
+        }
+        ]
+    });
+    chart.render();
+/*}
+
+window.onload = function () {*/
+    var chart1 = new CanvasJS.Chart("chartContainer1", {
+        theme: "theme1",//theme1
+        title:{
+            text: "Savings Accounts "              
+        },
+        animationEnabled: false,   // change to true
+        data: [              
+        {
+            // Change type to "bar", "area", "spline", "pie",etc.
+            type: "bar",
+            dataPoints: [
+                { label: "US Bank",  y: 14  },
+                { label: "Wells Fargo", y: 15  }
+            ]
+        }
+        ]
+    });
+    chart1.render();
+}
+</script>
+
+<script type="text/javascript" src="/javascripts/shortGridData.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#grid").shieldGrid({
+            dataSource: {
+                data: gridData,
+                schema: {
+                    fields: {
+                        id: { path: "id", type: Number },
+                        
+                        company: { path: "company", type: String },
+                        
+                        isActive: { path: "isActive", type: String },
+                        
+                        balance: { path: "balance", type: Number }
+                    }
+                }
+            },
+            sorting: {
+                multiple: true
+            },
+            rowHover: false,
+            columns: [
+                
+                
+                { field: "company", title: "Bank Name" },
+                
+                { field: "isActive", title: "Account Number" },
+                
+                { field: "balance", title: "Loan Amount", width: "120px" },                
+                {
+                    width: 150,
+                    title: "Update/Delete Column",
+                    buttons: [
+                        { commandName: "edit", caption: "Edit" },
+                        { commandName: "delete", caption: "Delete" }
+                    ]
+                }
+            ],
+            editing: {
+                enabled: true,
+                mode: "popup",
+                confirmation: {
+                    "delete": {
+                        enabled: true,
+                        template: function (item) {
+                            return "Delete row with ID = " + item.id
+                        }
+                    }
+                }
+            }            
+        });
+
+       
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#grid1").shieldGrid({
+            dataSource: {
+                data: gridData,
+                schema: {
+                    fields: {
+                        id: { path: "id", type: Number },
+                        
+                        company: { path: "company", type: String },
+                        
+                        isActive: { path: "isActive", type: String },
+                        
+                        balance: { path: "balance", type: Number }
+                    }
+                }
+            },
+            sorting: {
+                multiple: true
+            },
+            rowHover: false,
+            columns: [
+                
+                
+                { field: "company", title: "Bank Name" },
+                
+                { field: "isActive", title: "Account Number" },
+                
+                { field: "balance", title: "Loan Amount", width: "120px" },                
+                {
+                    width: 150,
+                    title: "Update/Delete Column",
+                    buttons: [
+                        { commandName: "edit", caption: "Edit" },
+                        { commandName: "delete", caption: "Delete" }
+                    ]
+                }
+            ],
+            editing: {
+                enabled: true,
+                mode: "popup",
+                confirmation: {
+                    "delete": {
+                        enabled: true,
+                        template: function (item) {
+                            return "Delete row with ID = " + item.id
+                        }
+                    }
+                }
+            }            
+        });
+
+       
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#grid2").shieldGrid({
+            dataSource: {
+                data: gridData,
+                schema: {
+                    fields: {
+                        id: { path: "id", type: Number },
+                        
+                        company: { path: "company", type: String },
+                        
+                        isActive: { path: "isActive", type: String },
+                        
+                        balance: { path: "balance", type: Number }
+                    }
+                }
+            },
+            sorting: {
+                multiple: true
+            },
+            rowHover: false,
+            columns: [
+                
+                
+                { field: "company", title: "Bank Name" },
+                
+                { field: "isActive", title: "Account Number" },
+                
+                { field: "balance", title: "Loan Amount", width: "120px" },                
+                {
+                    width: 150,
+                    title: "Update/Delete Column",
+                    buttons: [
+                        { commandName: "edit", caption: "Edit" },
+                        { commandName: "delete", caption: "Delete" }
+                    ]
+                }
+            ],
+            editing: {
+                enabled: true,
+                mode: "popup",
+                confirmation: {
+                    "delete": {
+                        enabled: true,
+                        template: function (item) {
+                            return "Delete row with ID = " + item.id
+                        }
+                    }
+                }
+            }            
+        });
+
+       
+    });
+</script>
         <!--SCRIPTS END-->
 
 </body>
